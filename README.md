@@ -10,7 +10,7 @@ git clone -b main https://github.com/puneethgottam/Pybullet_PickandPlace.git
 ```
 ## Docker 
 
-Build the image using Dockerfile. The docker image has ROS2 Humble, Python3 and Pybullet. Docker compose is a prerequisite. 
+Build the image using Dockerfile. The docker image has ROS2 Humble, Python3 and Pybullet. Docker compose is a prerequisite. If docker compose is not installed follow [this](https://docs.docker.com/compose/install/)
 
 ```bash
 docker compose build
