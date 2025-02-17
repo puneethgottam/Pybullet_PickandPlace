@@ -23,6 +23,7 @@ class Robot_env:
         for _ in range(100):
             p.stepSimulation()
             time.sleep(1./10.)
+            self.attach_camera()
     
     def suction_on(self):
         if self.suction_active == False:
@@ -48,6 +49,28 @@ class Robot_env:
         else:
             print('Suction is already off')
         
+    def attach_camera(self):
+        """ Captures an image from a camera attached to the wrist """
+        # Get wrist position and orientation
+        wrist_state = p.getLinkState(self.arm, self.ee_link-1, computeForwardKinematics=True)
+        wrist_pos = np.array(wrist_state[0])  # (x, y, z) position
+        wrist_ori = p.getMatrixFromQuaternion(wrist_state[1])  # Rotation matrix
+
+        # Camera Parameters
+        cam_target = wrist_pos + np.array([wrist_ori[2], wrist_ori[5], wrist_ori[8]])   # Forward direction
+        cam_up = [wrist_ori[1], wrist_ori[4], wrist_ori[7]]  # Camera Up Vector
+        cam_pos = wrist_pos + np.matmul(np.array(wrist_ori).reshape(3,3), np.transpose(np.array([0.05,0,0])))
+
+        view_matrix = p.computeViewMatrix(cam_pos, cam_target, cam_up)
+        proj_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=1.0, nearVal=0.01, farVal=2.0)
+
+        width, height, rgb_img, _, _ = p.getCameraImage(
+            width=256, height=256, viewMatrix=view_matrix, projectionMatrix=proj_matrix
+        )
+
+        return np.reshape(rgb_img, (height, width, 4))  # Reshape image
+
+
 class PickandDrop:
     
     def __init__(self, robot_env, drop_position, drop_orientation):
