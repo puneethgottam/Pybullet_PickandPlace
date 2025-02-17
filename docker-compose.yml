@@ -1,13 +1,13 @@
 # version: '3.7'
 
 services:
-  humble_gazebo:
+  ros_pybullet:
     build:
       context: .
       shm_size: '10gb'
       dockerfile: Dockerfile
       target: gazebo
-    image: humble_gazebo:latest
+    image: ros_pybullet:latest
     ipc: host
     deploy:
       resources:
@@ -22,7 +22,7 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     network_mode: host
     privileged: true
-    container_name: humble_gazebo_container
+    container_name: ros_pybullet_container
     # runtime: nvidia
     environment:
       DISPLAY: 172.20.144.1:0.0
