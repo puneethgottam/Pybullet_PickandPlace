@@ -5,27 +5,33 @@ Project of a robotic arm simulation for pick and place task using Pybullet
 
 Clone the git repository 
 
-'''bash 
+```bash
 git clone -b main https://github.com/puneethgottam/Pybullet_PickandPlace.git
-'''
-
+```
 ## Docker 
 
-Build the image using Dockerfile 
+Build the image using Dockerfile. The docker image has ROS2 Humble, Python3 and Pybullet
 
-'''bash
+```bash
 docker compose build
 docker compose up
-'''
+```
 
 # Usage
 
-Run the PickandPlace.py file for simulation
+## Pybullet
 
-'''bash
-python3 PickandPlace.py
-'''
+Run the PickandPlace.py file for simulation. Open new terminal and execute the below commands.
 
+```bash
+docker exec -it "container name" bash
+source /opt/ros/humble/setup.bash
+python3 /workspace/PickandPlace.py
+```
+## ROS2 
+
+Topic **_/camera/image_raw_** consists of rgb images. 
+Topic  **_/robot_status_** consists of robot status during the task.
 # Note
 
 ## URDF files
