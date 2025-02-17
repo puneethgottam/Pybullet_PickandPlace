@@ -3,7 +3,7 @@ Project of a robotic arm simulation for pick and place task using Pybullet
 
 # Installation 
 
-Clone the git repository. This branch has camera feature along with ros2 compatability.
+Clone the git repository. This branch has camera feature along with ros2 compatability. For 'main' branch ignore ros instructions. 
 
 ```bash
 git clone -b featureCam https://github.com/puneethgottam/Pybullet_PickandPlace.git
