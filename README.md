@@ -6,7 +6,7 @@ Project of a robotic arm simulation for pick and place task using Pybullet
 Clone the git repository 
 
 ```bash
-git clone -b main https://github.com/puneethgottam/Pybullet_PickandPlace.git
+git clone -b featureCam https://github.com/puneethgottam/Pybullet_PickandPlace.git
 ```
 ## Docker 
 
