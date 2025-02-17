@@ -31,6 +31,7 @@ python3 /workspace/PickandPlace.py
 ## ROS2 
 
 Topic **_/camera/image_raw_** consists of rgb images. 
+
 Topic  **_/robot_status_** consists of robot status during the task.
 # Note
 
