@@ -39,7 +39,8 @@ Topic  **_/robot_status_** consists of robot status during the task.
 The urdf files are obtained from the [ros_industrial/kuka_experimental](https://github.com/ros-industrial/kuka_experimental) repository. The urdf file was edited to add the end effector of this task specification. 
 
 ## Docker 
-The docker image with ros2 humble was taken from [docker hub] (https://hub.docker.com/r/althack/ros2/tags)
+The docker image with ros2 humble was taken from [docker hub] (https://hub.docker.com/r/althack/ros2/tags). 
+
 The docker-compose.yml must be edited accordinly for enabling the GPU capabilities. 
 
 
