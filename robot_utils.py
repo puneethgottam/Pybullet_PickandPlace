@@ -30,7 +30,7 @@ class Robot_env:
             p.setJointMotorControl2(self.arm, i, p.POSITION_CONTROL, joint_positions[i])
         for _ in range(100):
             p.stepSimulation()
-            time.sleep(1./10.)
+            time.sleep(1./20.)
             img = self.attach_camera()
             self.node.publish_image(img)
     
