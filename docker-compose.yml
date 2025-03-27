@@ -14,7 +14,6 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [" GPU-d088c2f1-1918-4eff-8f6c-991749db7c76"]
               capabilities: [gpu]
     volumes:
       - ./:/workspace
@@ -25,7 +24,7 @@ services:
     container_name: ros_pybullet_container
     # runtime: nvidia
     environment:
-      DISPLAY: 172.20.144.1:0.0
+      # DISPLAY:
       # QT_X11_NO_MITSHM: 1
       NAMESPACE: $NAMESPACE
     tty: true
